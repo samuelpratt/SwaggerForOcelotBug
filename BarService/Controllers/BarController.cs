@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FooService.Controllers
+namespace BarService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FooController : ControllerBase
+    public class BarController : ControllerBase
     {
         [HttpGet]
         public ActionResult<String> Get()
         {
-            return "Foo";
+            return "Bar";
         }
     }
 }
