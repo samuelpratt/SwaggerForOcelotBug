@@ -1,0 +1,72 @@
+{
+  "Routes": [
+    // Foo API
+    {
+      "DownstreamPathTemplate": "/api/foo",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "fooservice",
+          "Port": 5000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/foo",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "foo",
+      "Key": "foo"
+    },
+    //Bar API
+    {
+      "DownstreamPathTemplate": "/api/bar",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "barservice",
+          "Port": 5000
+        }
+      ],
+      "UpstreamPathTemplate": "/api/bar",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "bar",
+      "Key": "bar"
+    }
+    
+  ],
+
+  //Documentation
+  "SwaggerEndPoints": [
+    {
+      "Key": "foo",
+      "Config": [
+        {
+          "Name": "Foo API",
+          "Version": "v1",
+          "Url": "http://fooservice:5000/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "bar",
+      "Config": [
+        {
+          "Name": "Bar API",
+          "Version": "v1",
+          "Url": "http://barservice:5000/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+
+
+  "Aggregates": [
+    //Super basic. Just mash two responese together
+    {
+      "RouteKeys": [
+        "foo",
+        "bar"
+      ],
+      "UpstreamPathTemplate": "/api/foobar"
+    }
+  ]
+}
+
