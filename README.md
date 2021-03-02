@@ -84,7 +84,7 @@ root@d7e2700c5ac2:/app# curl http://localhost:5000/swagger/docs/aggregates/aggre
 
 ## Observations
 
-The issue appears to be the port mapping in the docker compose file: -
+The issue appears to be caused the port translation that we're doing: -
 
 ```
 version: "3.9"
@@ -100,8 +100,8 @@ services:
     
 ```
 
-As you can see we're mapping 5000 in the container to 8000 externally. However inside the container Kestral is trying to connect to 
-8000 locally
+As you can see we're mapping 5000 in the container to 8000 externally. However inside the container when Kestral tries to generate the swagger it seems is trying to connect to 
+8000 locally rather than 5000. You can see this in the stack trace: -
 
 ```
 apigateway_1  |       Connection id "0HM6TD4HNUVBJ", Request id "0HM6TD4HNUVBJ:00000002": An unhandled exception was thrown by the application.
