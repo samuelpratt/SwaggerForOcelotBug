@@ -6,8 +6,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5001
+          "Host": "fooservice",
+          "Port": 5000
         }
       ],
       "UpstreamPathTemplate": "/api/foo",
@@ -21,8 +21,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5002
+          "Host": "barservice",
+          "Port": 5000
         }
       ],
       "UpstreamPathTemplate": "/api/bar",
@@ -30,7 +30,7 @@
       "SwaggerKey": "bar",
       "Key": "bar"
     }
-    
+
   ],
 
   //Documentation
@@ -41,7 +41,7 @@
         {
           "Name": "Foo API",
           "Version": "v1",
-          "Url": "http://localhost:5001/swagger/v1/swagger.json"
+          "Url": "http://fooservice:5000/swagger/v1/swagger.json"
         }
       ]
     },
@@ -51,7 +51,7 @@
         {
           "Name": "Bar API",
           "Version": "v1",
-          "Url": "http://localhost:5002/swagger/v1/swagger.json"
+          "Url": "http://barservice:5000/swagger/v1/swagger.json"
         }
       ]
     }
@@ -59,7 +59,7 @@
 
 
   "Aggregates": [
-    //Super basic. Just mash two responese together
+    //Super basic. Just mash two responses together
     {
       "RouteKeys": [
         "foo",
@@ -67,6 +67,9 @@
       ],
       "UpstreamPathTemplate": "/api/foobar"
     }
-  ]
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5000"
+  }
 }
 
