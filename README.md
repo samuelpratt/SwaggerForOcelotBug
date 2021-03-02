@@ -1,12 +1,18 @@
+# Code to reproduce issue Issue MMLib.SwaggerForOcelot #164
+
+## Bug
+
+See: https://github.com/Burgyn/MMLib.SwaggerForOcelot/issues/164
+
 To build and Run the solution
 ```
  docker-compose build
-  docker-compose up
+ docker-compose up
 ```
 
 ## To reproduce the issue
 
-Getting the URL remotely returns a 500 error: -
+Getting the aggregte Swagger URL remotely returns a 500 error: -
 
 ```
 PS C:\Users\Sam.Pratt> curl http://localhost:8000/swagger/docs/aggregates/aggregates
