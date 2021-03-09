@@ -1,7 +1,14 @@
+# Code to reproduce https://github.com/Burgyn/MMLib.SwaggerForOcelot/issues/164 
+
+## Now fixed!
+
+The author has kindly fixed the issue. This code should now work.
+
+## Build and Run
 To build and Run the solution
 ```
  docker-compose build
-  docker-compose up
+ docker-compose up
 ```
 
 ## To reproduce the issue
